@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .common.sh
+source ./common.sh
 ROOT_ACCESS
 
 dnf install mongodb-org -y &>> $LOG_FILE
