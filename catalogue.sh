@@ -20,4 +20,4 @@ else
     echo -e " $(date "+%Y-%m-%d %H:%M:%S") | Products already loaded. "
 fi
 
-
+TIME_STAMP

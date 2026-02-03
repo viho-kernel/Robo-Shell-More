@@ -21,3 +21,4 @@ VALIDATE $? "Copying Nginx Configuration."
 systemctl restart nginx &>> $LOG_FILE
 VALIDATE $? "Restarting Nginx service."
 
+TIME_STAMP

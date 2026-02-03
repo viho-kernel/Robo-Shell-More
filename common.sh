@@ -93,10 +93,10 @@ NGINX_SETUP(){
     dnf module list nginx &>> $LOG_FILE
     VALIDATE $? "List Nginx Modules"
     dnf module disable nginx -y &>> $LOG_FILE
-    VALIDATE $? "Disable Nginx"
+    VALIDATE $? "Disable Default Nginx"
     dnf module enable nginx:1.24 -y &>> $LOG_FILE
-    VALIDATE $? "Enable Nging 1.24"
-    dnf install nginx -y
+    VALIDATE $? "Enable NginX 1.24"
+    dnf install nginx -y &>> $LOG_FILE
     VALIDATE $? "Installing Nginx"
     systemctl enable nginx  &>> $LOG_FILE
     VALIDATE $? "Installing Nginx"
