@@ -43,6 +43,10 @@ VALIDATE $? "Enabling NodeJS"
 
 dnf install nodejs -y &>> $LOG_FILE
 VALIDATE $? "Installing NodeJS"
+
+npm install &>> $LOG_FILE
+VALIDATE $? "Installing Dependencies"
+
 }
 
 ID_USER(){
@@ -56,19 +60,20 @@ fi
 }
 
 APP_SETUP(){
-    mkdir -p /app &>> $LOG_FILE
+    mkdir -p /app
     VALIDATE $? "Creating APP Directory!"
 
     curl -o /tmp/$NAME.zip https://roboshop-artifacts.s3.amazonaws.com/$NAME-v3.zip &>> $LOG_FILE
     VALIDATE $? "Downloading Application Code"
+
     cd /app 
     VALIDATE $? "Moving to app Directory"
-    rm -rf /app* &>> $LOG_FILE
+
+    rm -rf /app/* &>> $LOG_FILE
     VALIDATE $? "Removing Exisiting Code"
-    unzip /tmp/$NAME.zip
-    VALIDATE $? "Unzipping the Code"
-    npm install
-    VALIDATE $? "Installing Dependencies"
+
+    unzip /tmp/$NAME.zip &>> $LOG_FILE
+    VALIDATE $? "Unzipping the $NAME Code"
 }
 
 DAEMON(){
