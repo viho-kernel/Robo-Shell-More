@@ -9,7 +9,8 @@ VALIDATE $? "Installing Go Langugae"
 
 ID_USER
 
-mkdir -P /app 
+mkdir -p /app 
+VALIDATE $? "Created APP DIRECTORY"
 
 curl -L -o /tmp/dispatch.zip https://roboshop-artifacts.s3.amazonaws.com/dispatch-v3.zip  &>> $LOG_FILE
 VALIDATE $? "Installing Dispatch Code."
