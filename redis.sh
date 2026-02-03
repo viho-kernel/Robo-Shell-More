@@ -4,7 +4,7 @@ source ./common.sh
 
 
 dnf module disable redis -y &>> $LOG_FILE
-VALIDATE $? "Disabling defaul redis"
+VALIDATE $? "Disabling default redis"
 
 dnf module enable redis:7 -y &>> $LOG_FILE
 VALIDATE $? "Enabling Redis Version 7"
