@@ -2,7 +2,7 @@
 
 source ./common.sh
 ROOT_ACCESS
-name=dispatch
+NAME=dispatch
 
 dnf install golang -y &>> $LOG_FILE
 VALIDATE $? "Installing Go Langugae"
