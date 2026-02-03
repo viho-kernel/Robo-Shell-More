@@ -6,7 +6,7 @@ ROOT_ACCESS
 dnf install python3 gcc python3-devel -y &>> $LOG_FILE
 VALIDATE $? "Installed Python3"
 
-USER_ID
+ID_USER
 
 mkdir -p /app 
 VALIDATE $? "Created APP DIRECTORY"
