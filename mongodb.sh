@@ -11,6 +11,7 @@ VALIDATE $? "Copying Mongo files"
 
 systemctl enable mongod &>> $LOG_FILE
 VALIDATE $? "Enabling MongoDB Server"
+
 systemctl start mongod &>> $LOG_FILE
 VALIDATE $? "Enabling MongoDB Server"
 

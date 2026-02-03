@@ -1,6 +1,5 @@
 #!/bin/bash
 
-START_TIME=$(date '+%Y-%m-%d %H:%M:%S')
 USER_ID=$(id -u)
 LOG_FOLDER="/var/log/Shell-Roboshop-logs"
 LOG_FILE="$LOG_FOLDER/$0.log"
@@ -14,6 +13,10 @@ B="\e[34m"
 P="\e[35m"
 C="\e[36m"
 N="\e[0m"
+START_TIME=$(date +%s)
+MONGODB_HOST=mongodb.opsora.space
+
+echo "$(date '+%Y-%m-%d %H:%M:%S') | Script started executing at: $(date)" | tee -a $LOG_FILE
 
 ROOT_ACCESS() {
 if [ $USER_ID -ne 0 ]; then
@@ -32,12 +35,12 @@ VALIDATE() {
     fi
 }
 
-END_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+
 
 TIME_STAMP(){
-    local start_time=$(date -d "$START_TIME" +%s)
-    local end_time=$(date -d "$END_TIME" +%s)
-    local TOTAL_SECONDS=$((end_time - start_time))
-    local TOTAL_MINUTES=$((TOTAL_SECONDS / 60))
-    echo -e "$C Total execution time: ${total_seconds} seconds (${total_minutes} minutes) $N" | tee -a $LOG_FILE
+    END_TIME=$(date +%s)
+    TOTAL_TIME=$((END_TIME - START_TIME))
+    local TOTAL_MINUTES=$((TOTAL_TIME / 60))
+    local REMAIN_SECONDS=$((TOTAL_TIME % 60))
+    echo -e "$C Total execution time: (${TOTAL_MINUTES} minutes ${REMAIN_SECONDS} sec) $N" | tee -a $LOG_FILE
 }
