@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME=user
+NAME=cart
 source ./common.sh
 ROOT_ACCESS
 NODE_JS
