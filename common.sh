@@ -13,7 +13,8 @@ P="\e[35m"
 C="\e[36m"
 N="\e[0m"
 START_TIME=$(date +%s)
-MONGODB_HOST=mongodb.opsora.space
+MONGODB_HOST="mongodb.opsora.space"
+MYSQL_HOST="mysql.opsora.space"
 
 echo "Script started executing at: $(date '+%Y-%m-%d %H:%M:%S') " | tee -a $LOG_FILE
 
@@ -102,6 +103,27 @@ NGINX_SETUP(){
     VALIDATE $? "Installing Nginx"
     systemctl start nginx  &>> $LOG_FILE
     VALIDATE $? "Installing Nginx"
+}
+
+JAVA_SETUP(){
+    dnf install maven -y &>> $LOG_FILE
+    VALIDATE $? "Installing Maven"
+
+}
+
+MYSQL_SETUP(){
+
+    dnf install mysql -y &>> $LOG_FILE
+    VALIDATE $? "Installing MYsql Server"
+
+    mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/schema.sql &>> $LOG_FILE
+    VALIDATE $? "Loading Schema Database."
+
+    mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/app-user.sql &>> $LOG_FILE
+    VALIDATE $? "Setting password authentication."
+
+    mysql -h $MYSQL_HOST -uroot -pRoboShop@1 < /app/db/master-data.sql &>> $LOG_FILE
+    VALIDATE $? "Setting cities database."
 }
 TIME_STAMP(){
     END_TIME=$(date +%s)
