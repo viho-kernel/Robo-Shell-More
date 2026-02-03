@@ -13,11 +13,13 @@ VALIDATE $? "Copying the MongoDB File"
 
 dnf install mongodb-mongosh -y &>> $LOG_FILE
 
-if [ $(mongosh --host $MONGODB_HOST --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")' ) -le 0 ]; then
-    VALIDATE $? "Loading products"
+index=$(mongosh --host $MONGODB_HOST --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
+
+if [ $index -lt 0 ];then
+   mongosh --host $MONGODB_HOST </app/db/master-data.js &>>$LOG_FILE
+   VALIDATE $? "Loading Products"
 else
-    mongosh --host $MONGODB_HOST </app/db/master-data.js
-    echo -e " $(date "+%Y-%m-%d %H:%M:%S") | Products already loaded. "
+   echo -e " $(date "+%Y-%m-%d %H:%M:%S") | Products already loaded. "
 fi
 
 TIME_STAMP
