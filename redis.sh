@@ -18,7 +18,7 @@ VALIDATE $? "Enabling Default access"
 systemctl enable redis &>> $LOG_FILE
 VALIDATE $? "Enabling Redis"
 
-systemctl start redis &>> $LOG_FILE
+systemctl restart redis &>> $LOG_FILE
 VALIDATE $? "Starting Redis Service"
 
 TIME_STAMP
