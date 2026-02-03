@@ -16,7 +16,7 @@ N="\e[0m"
 START_TIME=$(date +%s)
 MONGODB_HOST=mongodb.opsora.space
 
-echo "$(date '+%Y-%m-%d %H:%M:%S') | Script started executing at: $(date)" | tee -a $LOG_FILE
+echo "Script started executing at: $(date '+%Y-%m-%d %H:%M:%S') " | tee -a $LOG_FILE
 
 ROOT_ACCESS() {
 if [ $USER_ID -ne 0 ]; then
@@ -39,6 +39,7 @@ VALIDATE() {
 
 TIME_STAMP(){
     END_TIME=$(date +%s)
+    echo "Script ended executing at: $(date '+%Y-%m-%d %H:%M:%S') " | tee -a $LOG_FILE
     TOTAL_TIME=$((END_TIME - START_TIME))
     local TOTAL_MINUTES=$((TOTAL_TIME / 60))
     local REMAIN_SECONDS=$((TOTAL_TIME % 60))
