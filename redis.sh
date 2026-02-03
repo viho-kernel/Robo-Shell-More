@@ -18,7 +18,7 @@ VALIDATE $? "Enabling Remote connection"
 systemctl enable redis &>> $LOG_FILE
 VALIDATE $? "Enabling Redis"
 
-systemctl start redis &>> $LOG_FILE
+systemctl start redis
 VALIDATE $? "Starting Redis Service"
 
 TIME_STAMP
