@@ -44,8 +44,6 @@ VALIDATE $? "Enabling NodeJS"
 dnf install nodejs -y &>> $LOG_FILE
 VALIDATE $? "Installing NodeJS"
 
-npm install &>> $LOG_FILE
-VALIDATE $? "Installing Dependencies"
 
 }
 
@@ -74,6 +72,9 @@ APP_SETUP(){
 
     unzip /tmp/$NAME.zip &>> $LOG_FILE
     VALIDATE $? "Unzipping the $NAME Code"
+
+    npm install &>> $LOG_FILE
+    VALIDATE $? "Installing Dependencies"
 }
 
 DAEMON(){
