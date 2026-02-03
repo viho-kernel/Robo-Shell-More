@@ -1,0 +1,9 @@
+#!/bin/bash
+
+NAME=user
+source ./common.sh
+ROOT_ACCESS
+NODE_JS
+ID_USER
+APP_SETUP
+DAEMON
