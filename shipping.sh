@@ -1,7 +1,8 @@
 #!/bin/bash
 
-NAME=shipping
 source ./common.sh
+NAME=shipping
+ROOT_ACCESS
 JAVA_SETUP
 ID_USER
 DAEMON
