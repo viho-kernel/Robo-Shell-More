@@ -13,3 +13,5 @@ systemctl start mysqld
 VALIDATE $? "Starting MySQL Server"
 
 mysql_secure_installation --set-root-pass RoboShop@1
+
+TIME_STAMP
