@@ -15,4 +15,4 @@ TOTAL_AMOUNT=1411.85
 
 
 
-sh mail.sh "vihari.reddy1802@gmail.com" "ORDER_ID" "PROBE_COST" "CYBORG_COST" "SHIPPING_COST" "TAX_COST" "TOTAL_AMOUNT"
+sh mail.sh "vihari.reddy1802@gmail.com" "$ORDER_ID" "$PROBE_COST" "$CYBORG_COST" "$SHIPPING_COST" "$TAX_COST" "$TOTAL_AMOUNT"
