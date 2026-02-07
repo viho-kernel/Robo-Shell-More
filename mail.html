@@ -5,45 +5,82 @@
   <title>RoboShop Order Confirmation #ORDER_ID</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
       color: #333;
       line-height: 1.6;
+      background-color: #f4f6f8;
     }
     .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
+      max-width: 650px;
+      margin: 30px auto;
+      padding: 25px;
       border: 1px solid #ddd;
-      background-color: #fafafa;
+      border-radius: 8px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header img {
+      max-width: 120px;
     }
     h2 {
       color: #2c3e50;
+      margin-top: 0;
     }
     .order-details {
-      margin: 15px 0;
-      padding: 10px;
-      background-color: #fff;
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #fafafa;
       border: 1px solid #eee;
+      border-radius: 6px;
+    }
+    .order-details h3 {
+      margin-top: 0;
+      color: #27ae60;
     }
     .order-details ul {
       list-style-type: none;
       padding: 0;
+      margin: 0;
     }
     .order-details li {
-      margin: 5px 0;
+      margin: 6px 0;
+      font-size: 15px;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #e74c3c;
+    }
+    .status {
+      margin: 15px 0;
+      padding: 10px;
+      background-color: #ecf9f1;
+      border: 1px solid #cce5cc;
+      border-radius: 6px;
+      font-size: 15px;
     }
     .footer {
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 0.9em;
       color: #555;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="header">
+      <!-- Replace with actual RoboShop logo URL -->
+      <img src="https://via.placeholder.com/120x60?text=RoboShop+Logo" alt="RoboShop Logo">
+    </div>
+
     <h2>Dear Customer,</h2>
     <p>Greetings from <strong>RoboShop</strong>!</p>
-    <p>We are writing to confirm that we have received your return request for <strong>Order ID: ORDER_ID</strong>. A return authorisation has been successfully provided.</p>
+    <p>We are writing to confirm that we have received your return request for 
+       <strong>Order ID: ORDER_ID</strong>. A return authorisation has been successfully provided.</p>
     
     <div class="order-details">
       <h3>Order Details:</h3>
@@ -52,12 +89,14 @@
         <li>Item: Robotic Mining Cyborg – CYBORG_COST</li>
         <li>Shipping: SHIPPING_COST</li>
         <li>Tax: TAX_COST</li>
-        <li><strong>Total Amount: TOTAL_AMOUNT</strong></li>
+        <li class="highlight">Total Amount: TOTAL_AMOUNT</li>
       </ul>
     </div>
 
-    <p><strong>Order Status:</strong> Confirmed<br>
-       <strong>Payment Status:</strong> Successful</p>
+    <div class="status">
+      <strong>Order Status:</strong> Confirmed<br>
+      <strong>Payment Status:</strong> Successful
+    </div>
 
     <p>Thank you for shopping with RoboShop. We appreciate your trust and look forward to serving you again.</p>
 
